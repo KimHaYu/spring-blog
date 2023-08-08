@@ -16,6 +16,7 @@ public class BoardDetailDTO {
     private String replyComment;
     private Integer replyUserId;
     private String replyUserUsername;
+    private boolean replyOwner; // DB에서 만들기
 
     public BoardDetailDTO(Integer boardId, String boardContent, String boardTitle, Integer boardUserId, Integer replyId,
             String replyComment, Integer replyUserId, String replyUserUsername) {

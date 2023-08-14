@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import shop.mtcoding.blog.dto.JoinDTO;
 import shop.mtcoding.blog.dto.LoginDTO;
+import shop.mtcoding.blog.dto.UserupdateDTO;
 import shop.mtcoding.blog.model.SessionUser;
 import shop.mtcoding.blog.model.User;
 import shop.mtcoding.blog.repository.UserRepository;
@@ -121,6 +122,15 @@ public class UserController {
         request.setAttribute("user", user);
 
         return "user/updateForm";
+    }
+
+    @PostMapping("/user/update")
+    public String update(UserupdateDTO userupdateDTO) {
+        String encPassword = BCrypt.hashpw(userupdateDTO.getPassword(), BCrypt.gensalt());
+        userupdateDTO.setPassword(encPassword);
+
+        userRepository.update(userupdateDTO);
+        return "redirect:/";
     }
 
     @GetMapping("/logout")

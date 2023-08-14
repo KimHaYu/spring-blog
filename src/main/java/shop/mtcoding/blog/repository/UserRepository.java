@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import shop.mtcoding.blog.dto.JoinDTO;
 import shop.mtcoding.blog.dto.LoginDTO;
+import shop.mtcoding.blog.dto.UserupdateDTO;
 import shop.mtcoding.blog.model.User;
 
 // BoardController, UserController, UserRepository
@@ -52,5 +53,8 @@ public class UserRepository {
         System.out.println("테스트 :" + 3);
         query.executeUpdate(); // 쿼리를 전송 (DBMS)
         System.out.println("테스트 :" + 4);
+    }
+
+    public void update(UserupdateDTO userupdateDTo) {
     }
 }
